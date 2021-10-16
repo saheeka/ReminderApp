@@ -1,0 +1,13 @@
+.box{
+    border: 1px blue solid ;
+    height: 550px;
+    background-color:rgb(113, 201, 216);
+    
+}
+h1,h3,h5{
+    font-family:monotype corsiva;
+    text-align: center;
+}
+.image_div{
+    text-align: center;
+}

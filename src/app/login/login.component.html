@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  
+    <div class="row">
+      <div class="col-4"></div>
+      <div class="col-4 box"   >
+        <div class="image_div"><img src="/assets/images/clock.jpg" style="height: 160px; width: 160px;" ></div>
+        <h3 > Anything you want me to remind you ? easy..!!</h3><br>
+      <h1>Login </h1>
+      <h5>to continue</h5>
+      
+  
+     <form>
+      <div class="mb-3 " >
+          <input type="text"  [(ngModel)]="name" name="name" placeholder="Enter Name" class="form-control" >
+         </div>
+         <div class="mb-3">
+          <input type="text" placeholder="Enter password" [(ngModel)]="pwd" name="pwd" class="form-control" >
+          </div>
+          
+          
+          <div class="row">
+              <div class="col-4"></div>
+              <div class="col-4">
+                  <button class="btn  btn-primary" (click)="login()"> &nbsp;&nbsp;Login&nbsp;&nbsp;</button>
+                 
+              </div>
+              <div class="col-4"></div>
+          </div>  
+        <div class="col-4"></div></form>  
+        <br>
+        <div style="text-align: right; font-size: large;">  <a routerLink="register" >Create account</a> </div>
+          </div>
+  </div></div>

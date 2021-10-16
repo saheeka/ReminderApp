@@ -1,0 +1,118 @@
+<div class="container mt-5">
+
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4 box">
+      <div class="image_div"><img src="/assets/images/clock.jpg" style="height: 200px; width: 200px;"></div>
+
+      <h2>Hi, {{this.user}}</h2><br>
+      <h5> Anything you want me to remind you ? easy..!!</h5><br><br>
+
+      <div class="buttn">
+
+
+
+
+        <button type="button" class="btn btn-primary buttn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Add Reminder
+        </button>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLabel">Add Reminder</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <input type="text" placeholder="Remind me to..." class="form-control" [(ngModel)]="event" name="event" >
+               <br> <input type="text" placeholder="Write short note " class="form-control" [(ngModel)]="note" name="note" >
+              <br>  <label style="font-weight: 800;" >Date:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="date" id="date" name="date" [(ngModel)]="date">
+                
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="addReminder()">Save </button>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+        <button type="button" (click)="viewReminder()" class="btn btn-primary buttn" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">
+          View Reminder
+        </button>
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel">  Reminders</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+
+                <table class="table table-light mt-3"><thead class="thead-light">
+                  <tr><th>Sl.No</th><th>Event Name</th><th>Note</th><Th>Date</Th></tr>
+                </thead><tbody>
+              <tr *ngFor="let item of this.reminders ,  index as i">
+                <td>{{i+1}} &nbsp;&nbsp;&nbsp;&nbsp;</td>
+              <td >{{item.Event}} &nbsp;&nbsp;&nbsp;&nbsp;</td>
+               <td>   {{item.Note}}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+               <td >   {{item.Date}}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                 <td><button (click)="remove(i)">Remove </button>
+                  &nbsp;&nbsp;<button type="button" (click)="edit(i)" class="btn btn-primary"  data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
+                    Edit
+                  </button>
+                
+                 </td></tr></tbody></table>
+
+              </div>
+              <div class="modal-footer">
+                <!-- <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade " id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalToggleLabel2"> Edit Reminder</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <input type="text"  class="form-control" [(ngModel)]="event" name="event" >
+                                 <br> <input type="text" placeholder="Write short note " class="form-control" [(ngModel)]="note" name="note" >
+                                <br>  <label style="font-weight: 800;" >Date:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <input type="date" id="date" name="date" [(ngModel)]="date">
+                                  
+        
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                
+                <button type="button" class="btn btn-primary" (click)="updateEvent()"  >Update </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a> -->
+      
+
+        <button type="button" class="btn btn-primary buttn" >
+          Logout
+        </button>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+&nbsp;&nbsp;
